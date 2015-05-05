@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+#0x01 Port Scanner
 
 import socket
 ports = [21, 22, 53, 445, 80, 443, 3389, 8080]
